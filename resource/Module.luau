@@ -208,7 +208,7 @@ SealzCore.GetAsset = function(path)
         return;
     end;
 
-    if not SealzCore.AssetRename then
+    if SealzCore.AssetRename then
         return getcustomasset(path);
     end;
 
