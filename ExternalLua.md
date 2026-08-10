@@ -135,3 +135,31 @@ COLOR.GREEN
 COLOR.BLUE
 COLOR.RED
 ```
+
+# Example
+esp player (name only)
+```lua
+local datamodel = sealz.DataModel()
+local plrs = sealz.FindFirstChildOfClass(datamodel,"Players");
+
+for i,v in next , sealz.GetChildren(plrs) do
+	local char = sealz.GetCharacter(v)
+
+	if char ~= 0 then
+		local root = sealz.FindFirstChild(char,"HumanoidRootPart");
+
+		local pos = sealz.GetPosition(root);
+	
+		local wts = sealz.WorldToViewport(pos , SCREEN_SIZE_X , SCREEN_SIZE_Y);
+
+		local name = sealz.GetName(v)
+
+		sealz.DrawString(
+			{x = wts.x - 15,y=wts.y - 25},
+			name,
+			10,
+			COLOR.WHITE
+		)
+	end;
+end
+```
