@@ -121,6 +121,13 @@ sealz.DrawCircle(
   false, -- filled
   {r=255,g=255,b=255} -- color
 )
+
+sealz.DrawRect(
+	{x=100,y=100}, -- position
+	{x = 50,y = 20}, -- size
+	true, -- filled
+	COLOR.WHITE -- color
+  )
 ```
 
 # Variables
