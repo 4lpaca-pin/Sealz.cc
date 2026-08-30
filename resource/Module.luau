@@ -188,18 +188,7 @@ SealzCore.GetFileType = function(path)
 end;
 
 SealzCore.GetFileName = function(path)
-    local split;
-
-    if string.split(path,"/")[1] then
-        split = string.split(path,"/");
-    else
-        split = string.split(path,"\\");
-    end;
-
-    local Max = #split;
-    local word = split[Max];
-
-    return word;
+    return path:match("^.+[\\/]([^\\/]+)$") or path;
 end;
 
 
