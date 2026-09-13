@@ -1,6 +1,10 @@
 local ClearDrawing = Drawing.clear or Drawing.Clear or cleardrawcache or cleardawcache or clear_draw_cache or function() end;
 LICENSE_KEY = getgenv().script_key or script_key or getgenv().license or license or getgenv().LICENSE or LICENSE;
 
+local SealzPDB = {
+    [6739698191] = "ViolenceDistrict.luau"
+};
+
 local args = {...};
 if args[1] then
     if not LICENSE_KEY and typeof(args[1]) == "string" then
@@ -69,7 +73,11 @@ end;
 local Load = function()
     writefile(Directory..'/Loader.json',HttpService:JSONEncode(LoaderConfig));
 
-    print("complete")
+    loadstring(game:HttpGet("https://github.com/4lpaca-pin/Sealz.cc/raw/refs/heads/main/core/"..SealzPDB[game.GameId]))();
+end;
+
+if not SealzPDB[game.GameId] then
+    return
 end;
 
 if LICENSE_KEY and LICENSE_KEY:byte() and not LoaderConfig.Legacy and Nexora(LICENSE_KEY) then
