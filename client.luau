@@ -73,7 +73,9 @@ end;
 local Load = function()
     writefile(Directory..'/Loader.json',HttpService:JSONEncode(LoaderConfig));
 
-    loadstring(game:HttpGet("https://github.com/4lpaca-pin/Sealz.cc/raw/refs/heads/main/core/"..SealzPDB[game.GameId]))();
+    local Fn = loadstring(game:HttpGet("https://github.com/4lpaca-pin/Sealz.cc/raw/refs/heads/main/core/"..SealzPDB[game.GameId]));
+
+    return Fn(LoaderConfig.License or LICENSE_KEY)
 end;
 
 if not SealzPDB[game.GameId] then
